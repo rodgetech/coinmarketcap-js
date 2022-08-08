@@ -12,14 +12,6 @@ export interface ICryptoClient {
   ) => Promise<any>;
 }
 
-/**
- * Returns methods to query data around cryptocurrencies such as ordered cryptocurrency lists or price and volume data.
- *
- * @param apiKey - Account API key
- * @param apiVersion - API version
- * @param apiBase - API base url
- * @returns ICryptoClient
- */
 export const cryptoClient = (
   apiKey: string,
   apiVersion: string,

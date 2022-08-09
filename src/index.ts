@@ -1,7 +1,8 @@
-import { cryptoClient, ICryptoClient } from "./crypto";
+import { cryptoClient } from "./crypto";
+import { CryptoClient } from "./interfaces/Crypto";
 
 export interface IRestClient {
-  crypto: ICryptoClient;
+  crypto: CryptoClient;
 }
 
 export const restClient = (

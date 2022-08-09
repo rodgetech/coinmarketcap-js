@@ -1,15 +1,11 @@
 import { cryptoClient } from "./crypto";
-import { CryptoClient } from "./interfaces/Crypto";
-
-export interface IRestClient {
-  crypto: CryptoClient;
-}
+import { RestClient } from "./interfaces/RestClient";
 
 export const restClient = (
   apiKey: string,
   apiVersion = "v2",
   apiBase = "https://pro-api.coinmarketcap.com"
-): IRestClient => ({
+): RestClient => ({
   crypto: cryptoClient(apiKey, apiVersion, apiBase),
 });
 

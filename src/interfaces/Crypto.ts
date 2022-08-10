@@ -1,7 +1,7 @@
 import ApiResponse from "./ApiResponse";
 
 export interface CryptoClient {
-  idMap: (query?: IdMapQueryParams) => Promise<CryptoIdMapResponse>;
+  idMap: (query?: IdMapQueryParams) => Promise<IdMapResponse>;
   latestQuotes: (
     query?: LatestQuotesQueryParams
   ) => Promise<LatestQuotesResponse>;
@@ -24,7 +24,7 @@ export type IdMapQueryParams = {
   aux?: string;
 };
 
-export interface CryptoIdMap {
+export interface IdMap {
   id: number;
   name: string;
   symbol: string;
@@ -36,7 +36,7 @@ export interface CryptoIdMap {
   platform: Platform;
 }
 
-export interface CryptoIdMapResponse extends ApiResponse<CryptoIdMap[]> {}
+export interface IdMapResponse extends ApiResponse<IdMap[]> {}
 
 export interface LatestQuotesQueryParams {
   id?: number;

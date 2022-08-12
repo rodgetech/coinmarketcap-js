@@ -1,5 +1,5 @@
 {
-  "name": "coinmarketcap",
+  "name": "coinmarketcap-js",
   "version": "1.0.0",
   "description": "Javascript SDK for CoinMarketCap",
   "main": "dist/index.js",
@@ -13,6 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
+    "humps": "^2.0.1",
+    "query-string": "^7.1.1",
     "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/humps": "^2.0.2"
   }
 }

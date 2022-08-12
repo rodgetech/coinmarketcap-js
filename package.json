@@ -1,5 +1,5 @@
 {
-  "name": "coinmarketcap",
+  "name": "coinmarketcap-js",
   "version": "1.0.0",
   "description": "Javascript SDK for CoinMarketCap",
   "main": "dist/index.js",

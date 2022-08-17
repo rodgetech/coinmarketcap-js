@@ -142,27 +142,25 @@ export interface Coin {
   tags: string[];
 }
 
-export interface CategoryData {
-  [k: string]: {
-    coins: Coin[];
-    platform: Platform;
-    quote: {
-      [k: string]: {
-        price: number;
-        volume24h: number;
-        volume24hReported: number;
-        volume7d: number;
-        volume7dReported: number;
-        volume30d: number;
-        volume30dReported: number;
-        marketCap: number;
-        percentChange1h: number;
-        percentChange24h: number;
-        percentChange7d: number;
-        lastUpdated: string;
-      };
+export interface CategoryData extends CategoriesData {
+  coins: Coin[];
+  platform: Platform;
+  quote: {
+    [k: string]: {
+      price: number;
+      volume24h: number;
+      volume24hReported: number;
+      volume7d: number;
+      volume7dReported: number;
+      volume30d: number;
+      volume30dReported: number;
+      marketCap: number;
+      percentChange1h: number;
+      percentChange24h: number;
+      percentChange7d: number;
+      lastUpdated: string;
     };
-  } & CategoriesData;
+  };
 }
 
 export interface CategoryResponse extends ApiResponse<CategoryData> {}

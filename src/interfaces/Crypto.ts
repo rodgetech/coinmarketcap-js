@@ -7,6 +7,7 @@ export interface CryptoClient {
   ) => Promise<LatestQuotesResponse>;
   categories: (query?: CategoriesQueryParams) => Promise<CategoriesResponse>;
   category: (query?: CategoryQueryParams) => Promise<CategoryResponse>;
+  info: (query?: InfoQueryParams) => Promise<InfoResponse>;
 }
 
 export interface Platform {
@@ -123,7 +124,7 @@ export interface CategoryQueryParams {
   start?: number;
   limit?: number;
   convert?: string;
-  convert_id?: string;
+  convertId?: string;
 }
 
 export interface Coin {
@@ -164,3 +165,44 @@ export interface CategoryData extends CategoriesData {
 }
 
 export interface CategoryResponse extends ApiResponse<CategoryData> {}
+
+export interface InfoQueryParams {
+  id?: string;
+  slug?: string;
+  symbol?: string;
+  address?: string;
+  aux?: string;
+}
+
+export interface Url {
+  website: string[];
+  technicalDoc: string[];
+  explorer: string[];
+  sourceCode: string[];
+  messageBoard: string[];
+  chat: string[];
+  announcement: string[];
+  reddit: string[];
+  twitter: string[];
+}
+
+export class Metadata {
+  id: number;
+  name: string;
+  symbol: string;
+  category: string;
+  slug: string;
+  logo: string;
+  description: string;
+  dateAdded: string;
+  dateLaunched: string;
+  notice: string;
+  tags: string[];
+  platform: Platform;
+  selfReportedCirculatingSupply: number;
+  selfReportedMarketCap: number;
+  selfReportedTags: string[];
+  urls: Url;
+}
+
+export interface InfoResponse extends ApiResponse<{ [k: string]: Metadata }> {}

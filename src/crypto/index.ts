@@ -1,5 +1,7 @@
 import { CryptoClient } from "../interfaces/Crypto";
 import { invoke } from "../request";
+import { categories } from "./categories";
+import { category } from "./category";
 import { idMap } from "./idMap";
 import { latestQuotes } from "./latestQuotes";
 
@@ -10,4 +12,6 @@ export const cryptoClient = (
 ): CryptoClient => ({
   idMap: invoke(apiKey, apiBase, apiVersion, idMap),
   latestQuotes: invoke(apiKey, apiBase, apiVersion, latestQuotes),
+  categories: invoke(apiKey, apiBase, apiVersion, categories),
+  category: invoke(apiKey, apiBase, apiVersion, category),
 });

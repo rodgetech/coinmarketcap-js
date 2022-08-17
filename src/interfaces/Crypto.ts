@@ -5,6 +5,8 @@ export interface CryptoClient {
   latestQuotes: (
     query?: LatestQuotesQueryParams
   ) => Promise<LatestQuotesResponse>;
+  categories: (query?: CategoriesQueryParams) => Promise<CategoriesResponse>;
+  category: (query?: CategoryQueryParams) => Promise<CategoryResponse>;
 }
 
 export interface Platform {
@@ -91,3 +93,74 @@ export interface LatestQuotes {
 }
 
 export interface LatestQuotesResponse extends ApiResponse<LatestQuotes> {}
+
+export interface CategoriesQueryParams {
+  start?: number;
+  limit?: number;
+  id?: string;
+  slug?: string;
+  symbol?: string;
+}
+
+export interface CategoriesData {
+  id: number;
+  name: string;
+  title: string;
+  description: string;
+  numTokens: number;
+  avgPriceChange: number;
+  marketCap: number;
+  marketCapChange: number;
+  volume: number;
+  volumeChange: number;
+  lastUpdated: number;
+}
+
+export interface CategoriesResponse extends ApiResponse<CategoriesData[]> {}
+
+export interface CategoryQueryParams {
+  id: string;
+  start?: number;
+  limit?: number;
+  convert?: string;
+  convert_id?: string;
+}
+
+export interface Coin {
+  id: number;
+  name: string;
+  symbol: string;
+  slug: string;
+  cmcRank: number;
+  numMarketPairs: number;
+  circulatingSupply: number;
+  totalSupply: number;
+  marketCapByTotalSupply: number;
+  maxSupply: number;
+  lastUpdated: string;
+  dateAdded: string;
+  tags: string[];
+}
+
+export interface CategoryData extends CategoriesData {
+  coins: Coin[];
+  platform: Platform;
+  quote: {
+    [k: string]: {
+      price: number;
+      volume24h: number;
+      volume24hReported: number;
+      volume7d: number;
+      volume7dReported: number;
+      volume30d: number;
+      volume30dReported: number;
+      marketCap: number;
+      percentChange1h: number;
+      percentChange24h: number;
+      percentChange7d: number;
+      lastUpdated: string;
+    };
+  };
+}
+
+export interface CategoryResponse extends ApiResponse<CategoryData> {}

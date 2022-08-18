@@ -36,7 +36,7 @@ const infoResult = await rest.crypto.info({ symbol: "BTC" });
 
 Returns paginated data about all coin categories.
 
-Options:
+Options`Object?`:
 
 |         |          |
 | ------- | -------- |

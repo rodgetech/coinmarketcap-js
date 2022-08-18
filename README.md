@@ -64,7 +64,7 @@ try {
 
 Returns data about a single coin category.
 
-Options:
+Options `Object`:
 
 |            |          |
 | ---------- | -------- |
@@ -95,7 +95,7 @@ try {
 
 Returns all or a paginated list of cryptocurrencies.
 
-Options:
+Options `Object?`:
 
 |                |          |
 | -------------- | -------- |
@@ -126,7 +126,7 @@ try {
 
 Returns static data for one or many cryptocurrencies.
 
-Options:
+Options `Object?`:
 
 |          |          |
 | -------- | -------- |
@@ -156,7 +156,7 @@ try {
 
 Returns paginated list of all active cryptocurrencies along with latest market data.
 
-Options:
+Options `Object?`:
 
 |                       |          |
 | --------------------- | -------- |
@@ -200,7 +200,7 @@ try {
 
 Returns the latest market quote data for one or many cryptocurrencies.
 
-Options:
+Options `Object?`:
 
 |              |           |
 | ------------ | --------- |

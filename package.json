@@ -10,8 +10,14 @@
   "scripts": {
     "build": "tsc"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Luis R.",
+  "license": "MIT",
+  "keywords": [
+    "api",
+    "sdk",
+    "coinmarketcap",
+    "cryptocurrency"
+  ],
   "dependencies": {
     "axios": "^0.27.2",
     "humps": "^2.0.1",

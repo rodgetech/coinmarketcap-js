@@ -11,7 +11,7 @@
     "build": "tsc"
   },
   "author": "Luis R.",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "api",
     "sdk",

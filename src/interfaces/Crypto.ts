@@ -8,6 +8,28 @@ export interface CryptoClient {
   categories: (query?: CategoriesQueryParams) => Promise<CategoriesResponse>;
   category: (query?: CategoryQueryParams) => Promise<CategoryResponse>;
   info: (query?: InfoQueryParams) => Promise<InfoResponse>;
+  latestListings: (
+    query?: LatestListingsQueryParams
+  ) => Promise<LatestListingsResponse>;
+}
+
+export interface QuoteData {
+  price: number;
+  volume24h: number;
+  volumeChange24h: number;
+  volume24hReported: number;
+  volume7d: number;
+  volume7dReported: number;
+  volume30d: number;
+  volume30dReported: number;
+  marketCap: number;
+  marketCapDominance: number;
+  fullyDilutedMarketCap: number;
+  percentChange1h: number;
+  percentChange24h: number;
+  percentChange7d: number;
+  percentChange30d: number;
+  lastUpdated: string;
 }
 
 export interface Platform {
@@ -71,24 +93,7 @@ export interface LatestQuotes {
     selfReportedCirculatingSupply: number;
     selfReportedMarketCap: number;
     quote: {
-      [k: string]: {
-        price: number;
-        volume24h: number;
-        volumeChange24h: number;
-        volume24hReported: number;
-        volume7d: number;
-        volume7dReported: number;
-        volume30d: number;
-        volume30dReported: number;
-        marketCap: number;
-        marketCapDominance: number;
-        fullyDilutedMarketCap: number;
-        percentChange1h: number;
-        percentChange24h: number;
-        percentChange7d: number;
-        percentChange30d: number;
-        lastUpdated: string;
-      };
+      [k: string]: QuoteData;
     };
   };
 }
@@ -206,3 +211,49 @@ export class Metadata {
 }
 
 export interface InfoResponse extends ApiResponse<{ [k: string]: Metadata }> {}
+
+export interface LatestListingsQueryParams {
+  start?: number;
+  limit?: number;
+  priceMin?: number;
+  priceMax?: number;
+  marketCapMin?: number;
+  marketCapMax?: number;
+  volume24hMin?: number;
+  volume24hMax?: number;
+  circulatingSupplyMin?: number;
+  circulatingSupplyMax?: number;
+  percentChange24hMin?: number;
+  percentChange24hMax?: number;
+  convert?: string;
+  convertId?: string;
+  sort?: string;
+  sortDir?: "asc" | "desc";
+  cryptocurrencyType?: "all" | "coins" | "tokens";
+  tag?: "all" | "defi" | "filesharing";
+  aux?: string;
+}
+
+export interface LatestListingsData {
+  id: number;
+  name: string;
+  symbol: string;
+  slug: string;
+  cmcRank: string;
+  numMarketPairs: number;
+  circulatingSupply: number;
+  totalSupply: number;
+  marketCapByTotalSupply: number;
+  maxSupply: number;
+  lastUpdated: string;
+  dateAdded: string;
+  tags: string[];
+  selfReportedCirculatingSupply: number;
+  selfReportedMarketCap: number;
+  tvlRatio: number;
+  platform: Platform;
+  quote: QuoteData & { tvl: number };
+}
+
+export interface LatestListingsResponse
+  extends ApiResponse<LatestListingsData[]> {}

@@ -195,3 +195,35 @@ try {
   console.log(error);
 }
 ```
+
+### latestQuotes
+
+Returns the latest market quote data for one or many cryptocurrencies.
+
+Options:
+
+|              |           |
+| ------------ | --------- |
+| id?          | `Number`  |
+| slug?        | `String`  |
+| symbol?      | `String`  |
+| convert?     | `String`  |
+| convertId?   | `String`  |
+| aux?         | `String`  |
+| skipInvalid? | `Boolean` |
+
+Example:
+
+```typescript
+import { restClient } from "coinmarketcap-js";
+
+const rest = restClient("API KEY");
+
+try {
+  const result = await rest.crypto.latestQuotes({
+    symbol: "BTC",
+  });
+} catch (error) {
+  console.log(error);
+}
+```

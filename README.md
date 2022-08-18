@@ -30,7 +30,7 @@ const infoResult = await rest.crypto.info({ symbol: "BTC" });
   - [latestListings](#latestListings)
   - [latestQuotes](#latestQuotes)
 - [Fiat](#fiat)
-  - [idMap](#idMap)
+  - [idMap](#idMap-1)
 
 ## Cryptocurrency
 

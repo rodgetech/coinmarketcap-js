@@ -29,6 +29,8 @@ const infoResult = await rest.crypto.info({ symbol: "BTC" });
   - [info](#info)
   - [latestListings](#latestListings)
   - [latestQuotes](#latestQuotes)
+- [Fiat](#fiat)
+  - [idMap](#idMap-1)
 
 ## Cryptocurrency
 
@@ -114,9 +116,7 @@ import { restClient } from "coinmarketcap-js";
 const rest = restClient("API KEY");
 
 try {
-  const result = await rest.crypto.idMap({
-    limit: 100,
-  });
+  const result = await rest.crypto.idMap({ limit: 100 });
 } catch (error) {
   console.log(error);
 }
@@ -144,9 +144,7 @@ import { restClient } from "coinmarketcap-js";
 const rest = restClient("API KEY");
 
 try {
-  const result = await rest.crypto.info({
-    symbol: "BTC",
-  });
+  const result = await rest.crypto.info({ symbol: "BTC" });
 } catch (error) {
   console.log(error);
 }
@@ -188,9 +186,7 @@ import { restClient } from "coinmarketcap-js";
 const rest = restClient("API KEY");
 
 try {
-  const result = await rest.crypto.latestListings({
-    limit: 50,
-  });
+  const result = await rest.crypto.latestListings({ limit: 50 });
 } catch (error) {
   console.log(error);
 }
@@ -220,9 +216,36 @@ import { restClient } from "coinmarketcap-js";
 const rest = restClient("API KEY");
 
 try {
-  const result = await rest.crypto.latestQuotes({
-    symbol: "BTC",
-  });
+  const result = await rest.crypto.latestQuotes({ symbol: "BTC" });
+} catch (error) {
+  console.log(error);
+}
+```
+
+## Fiat
+
+### idMap
+
+Returns data about fiat currencies with unique CoinMarketCap ids.
+
+Options `Object?`:
+
+|                |           |
+| -------------- | --------- |
+| start?         | `Number`  |
+| limit?         | `Number`  |
+| sort?          | `String`  |
+| includeMetals? | `Boolean` |
+
+Example:
+
+```typescript
+import { restClient } from "coinmarketcap-js";
+
+const rest = restClient("API KEY");
+
+try {
+  const result = await rest.fiat.idMap({ limit: 1 });
 } catch (error) {
   console.log(error);
 }

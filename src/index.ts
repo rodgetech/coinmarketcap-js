@@ -1,4 +1,5 @@
 import { cryptoClient } from "./crypto";
+import { fiatClient } from "./fiat";
 import { RestClient } from "./interfaces/RestClient";
 
 export const restClient = (
@@ -7,6 +8,7 @@ export const restClient = (
   apiBase = "https://pro-api.coinmarketcap.com"
 ): RestClient => ({
   crypto: cryptoClient(apiKey, apiVersion, apiBase),
+  fiat: fiatClient(apiKey, apiVersion, apiBase),
 });
 
 export default restClient;

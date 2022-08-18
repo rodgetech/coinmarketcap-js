@@ -34,15 +34,15 @@ const infoResult = await rest.crypto.info({ symbol: "BTC" });
 
 ## categories
 
-Returns paginated data about all coin categories available on CoinMarketCap.
+Returns paginated data about all coin categories.
 
 Options:
 
 |         |          |
 | ------- | -------- |
+| id?     | `String` |
 | start?  | `Number` |
 | limit?  | `Number` |
-| id?     | `String` |
 | slug?   | `String` |
 | symbol? | `String` |
 
@@ -54,4 +54,31 @@ import { restClient } from "coinmarketcap-js";
 const rest = restClient("API KEY");
 
 const categories = await rest.crypto.categories({ limit: 1, symbol: "BTC" });
+```
+
+## category
+
+Returns data about a single coin category.
+
+Options:
+
+|            |          |
+| ---------- | -------- |
+| id         | `String` |
+| start?     | `Number` |
+| limit?     | `Number` |
+| convert?   | `String` |
+| convertId? | `String` |
+
+### Example
+
+```typescript
+import { restClient } from "coinmarketcap-js";
+
+const rest = restClient("API KEY");
+
+const category = await rest.crypto.category({
+  id: "categoryID",
+  limit: 1,
+});
 ```

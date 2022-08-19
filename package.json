@@ -1,6 +1,6 @@
 {
   "name": "coinmarketcap-js",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Javascript SDK for CoinMarketCap",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,6 +12,12 @@
   },
   "author": "Luis R.",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/rodgeTech/coinmarketcap-js",
+    "type": "git"
+  },
+  "homepage": "https://github.com/rodgeTech/coinmarketcap-js",
+  "bugs": "https://github.com/rodgeTech/coinmarketcap-js",
   "keywords": [
     "api",
     "sdk",

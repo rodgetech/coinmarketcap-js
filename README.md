@@ -31,6 +31,9 @@ const infoResult = await rest.crypto.info({ symbol: "BTC" });
   - [latestQuotes](#latestQuotes)
 - [Fiat](#fiat)
   - [idMap](#idMap-1)
+- [Exchange](#exchange)
+  - [info](#info-1)
+  - [idMap](#idMap-2)
 
 ## Cryptocurrency
 
@@ -246,6 +249,64 @@ const rest = restClient("API KEY");
 
 try {
   const result = await rest.fiat.idMap({ limit: 1 });
+} catch (error) {
+  console.log(error);
+}
+```
+
+## Exchange
+
+### info
+
+Returns static data for one or more exchanges.
+
+Options `Object?`:
+
+|       |          |
+| ----- | -------- |
+| id?   | `String` |
+| slug? | `String` |
+| aux?  | `String` |
+
+Example:
+
+```typescript
+import { restClient } from "coinmarketcap-js";
+
+const rest = restClient("API KEY");
+
+try {
+  const result = await rest.exchange.info({ id: "270" });
+} catch (error) {
+  console.log(error);
+}
+```
+
+### idMap
+
+Returns a paginated list of all active cryptocurrency exchanges per CoinMarketCap ID
+
+Options `Object?`:
+
+|                |          |
+| -------------- | -------- |
+| listingStatus? | `String` |
+| slug?          | `String` |
+| start?         | `Number` |
+| limit?         | `Number` |
+| sort?          | `String` |
+| aux?           | `String` |
+| cryptoId?      | `String` |
+
+Example:
+
+```typescript
+import { restClient } from "coinmarketcap-js";
+
+const rest = restClient("API KEY");
+
+try {
+  const result = await rest.exchange.idMap({ limit: 1 });
 } catch (error) {
   console.log(error);
 }

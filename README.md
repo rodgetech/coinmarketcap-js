@@ -34,6 +34,8 @@ const infoResult = await rest.crypto.info({ symbol: "BTC" });
 - [Exchange](#exchange)
   - [info](#info-1)
   - [idMap](#idMap-2)
+- [Global](#global)
+  - [latestQuotes](#latestQuotes-1)
 
 ## Cryptocurrency
 
@@ -307,6 +309,33 @@ const rest = restClient("API KEY");
 
 try {
   const result = await rest.exchange.idMap({ limit: 1 });
+} catch (error) {
+  console.log(error);
+}
+```
+
+## Global
+
+### latestQuotes
+
+Returns the latest global cryptocurrency market metrics.
+
+Options `Object?`:
+
+|            |          |
+| ---------- | -------- |
+| convert?   | `String` |
+| convertId? | `String` |
+
+Example:
+
+```typescript
+import { restClient } from "coinmarketcap-js";
+
+const rest = restClient("API KEY");
+
+try {
+  const result = await rest.global.latestQuotes();
 } catch (error) {
   console.log(error);
 }

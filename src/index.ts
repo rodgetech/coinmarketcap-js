@@ -1,6 +1,7 @@
 import { cryptoClient } from "./crypto";
 import { exchangeClient } from "./exchange";
 import { fiatClient } from "./fiat";
+import { globalClient } from "./global";
 import { RestClient } from "./interfaces/RestClient";
 
 export const restClient = (
@@ -11,6 +12,7 @@ export const restClient = (
   crypto: cryptoClient(apiKey, apiVersion, apiBase),
   fiat: fiatClient(apiKey, apiVersion, apiBase),
   exchange: exchangeClient(apiKey, apiVersion, apiBase),
+  global: globalClient(apiKey, apiVersion, apiBase),
 });
 
 export default restClient;

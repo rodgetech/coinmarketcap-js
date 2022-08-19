@@ -12,6 +12,12 @@
   },
   "author": "Luis R.",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/rodgeTech/coinmarketcap-js",
+    "type": "git"
+  },
+  "homepage": "https://github.com/rodgeTech/coinmarketcap-js",
+  "bugs": "https://github.com/rodgeTech/coinmarketcap-js",
   "keywords": [
     "api",
     "sdk",

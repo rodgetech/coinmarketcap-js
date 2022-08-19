@@ -32,6 +32,7 @@ const infoResult = await rest.crypto.info({ symbol: "BTC" });
 - [Fiat](#fiat)
   - [idMap](#idMap-1)
 - [Exchange](#exchange)
+  - [info](#info-1)
   - [idMap](#idMap-2)
 
 ## Cryptocurrency
@@ -254,6 +255,32 @@ try {
 ```
 
 ## Exchange
+
+### info
+
+Returns static data for one or more exchanges.
+
+Options `Object?`:
+
+|       |          |
+| ----- | -------- |
+| id?   | `String` |
+| slug? | `String` |
+| aux?  | `String` |
+
+Example:
+
+```typescript
+import { restClient } from "coinmarketcap-js";
+
+const rest = restClient("API KEY");
+
+try {
+  const result = await rest.exchange.info({ id: "270" });
+} catch (error) {
+  console.log(error);
+}
+```
 
 ### idMap
 

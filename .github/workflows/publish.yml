@@ -12,6 +12,8 @@ jobs:
           node-version: "14.x"
       - name: Install dependencies 🔧
         run: npm install
+      - name: Build
+        run: npm run build
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}

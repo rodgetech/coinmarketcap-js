@@ -8,7 +8,21 @@ A javascript SDK for interacting with the free version of the CoinMarketCap API.
 npm install coinmarketcap-js
 ```
 
-## Setup Client
+## Quick Start
+
+### Note: CommonJS usage
+
+To take advantage of the TypeScript typings (for intellisense / autocomplete) while using CommonJS imports with `require()`, use the following approach:
+
+```js
+const restClient = require("coinmarketcap-js").default;
+
+const rest = restClient("API KEY");
+
+// rest.<method> will now provide autocomplete and parameter typings
+```
+
+### ESM usage
 
 ```typescript
 import { restClient } from "coinmarketcap-js";

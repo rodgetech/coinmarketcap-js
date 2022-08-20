@@ -3,6 +3,7 @@ import { exchangeClient } from "./exchange";
 import { fiatClient } from "./fiat";
 import { globalClient } from "./global";
 import { RestClient } from "./interfaces/RestClient";
+import { toolsClient } from "./tools";
 
 export const restClient = (
   apiKey: string,
@@ -13,6 +14,7 @@ export const restClient = (
   fiat: fiatClient(apiKey, apiVersion, apiBase),
   exchange: exchangeClient(apiKey, apiVersion, apiBase),
   global: globalClient(apiKey, apiVersion, apiBase),
+  tools: toolsClient(apiKey, apiVersion, apiBase),
 });
 
 export default restClient;

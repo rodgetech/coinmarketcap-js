@@ -1,6 +1,6 @@
 # coinmarketcap-js
 
-A javascript SDK for interacting with the free version of the CoinMarketCap API.
+A javascript SDK for interacting with the free version of the [CoinMarketCap API](https://coinmarketcap.com/api/).
 
 ## Install
 
@@ -8,7 +8,21 @@ A javascript SDK for interacting with the free version of the CoinMarketCap API.
 npm install coinmarketcap-js
 ```
 
-## Setup Client
+## Quick Start
+
+### Note: CommonJS usage
+
+To take advantage of the TypeScript typings (for intellisense / autocomplete) while using CommonJS imports with `require()`, use the following approach:
+
+```js
+const restClient = require("coinmarketcap-js").default;
+
+const rest = restClient("API KEY");
+
+// rest.<method> will now provide autocomplete and parameter typings
+```
+
+### ESM usage
 
 ```typescript
 import { restClient } from "coinmarketcap-js";
@@ -36,6 +50,8 @@ const infoResult = await rest.crypto.info({ symbol: "BTC" });
   - [idMap](#idMap-2)
 - [Global](#global)
   - [latestQuotes](#latestQuotes-1)
+- [Tools](#tools)
+  - [priceConversion](#priceConversion)
 
 ## Cryptocurrency
 
@@ -336,6 +352,40 @@ const rest = restClient("API KEY");
 
 try {
   const result = await rest.global.latestQuotes();
+} catch (error) {
+  console.log(error);
+}
+```
+
+## Tools
+
+### priceConversion
+
+Convert provided amount of one cryptocurrency or fiat currency into one or more different currencies using the latest market rate for each currency.
+
+Options `Object`:
+
+|            |          |
+| ---------- | -------- |
+| amount     | `Number` |
+| id?        | `String` |
+| symbol?    | `String` |
+| time?      | `String` |
+| convert?   | `String` |
+| convertId? | `String` |
+
+Example:
+
+```typescript
+import { restClient } from "coinmarketcap-js";
+
+const rest = restClient("API KEY");
+
+try {
+  const result = await rest.tools.priceConversion({
+    amount: 100,
+    symbol: "BTC",
+  });
 } catch (error) {
   console.log(error);
 }

@@ -36,6 +36,8 @@ const infoResult = await rest.crypto.info({ symbol: "BTC" });
   - [idMap](#idMap-2)
 - [Global](#global)
   - [latestQuotes](#latestQuotes-1)
+- [Tools](#tools)
+  - [priceConversion](#priceConversion)
 
 ## Cryptocurrency
 
@@ -336,6 +338,40 @@ const rest = restClient("API KEY");
 
 try {
   const result = await rest.global.latestQuotes();
+} catch (error) {
+  console.log(error);
+}
+```
+
+## Tools
+
+### priceConversion
+
+Convert provided amount of one cryptocurrency or fiat currency into one or more different currencies using the latest market rate for each currency.
+
+Options `Object`:
+
+|            |          |
+| ---------- | -------- |
+| amount     | `Number` |
+| id?        | `String` |
+| symbol?    | `String` |
+| time?      | `String` |
+| convert?   | `String` |
+| convertId? | `String` |
+
+Example:
+
+```typescript
+import { restClient } from "coinmarketcap-js";
+
+const rest = restClient("API KEY");
+
+try {
+  const result = await rest.tools.priceConversion({
+    amount: 100,
+    symbol: "BTC",
+  });
 } catch (error) {
   console.log(error);
 }

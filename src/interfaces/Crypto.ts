@@ -51,6 +51,7 @@ export type IdMapQueryParams = {
 
 export interface IdMap {
   id: number;
+  rank: number;
   name: string;
   symbol: string;
   slug: string;

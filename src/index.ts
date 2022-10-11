@@ -2,8 +2,14 @@ import { cryptoClient } from "./crypto";
 import { exchangeClient } from "./exchange";
 import { fiatClient } from "./fiat";
 import { globalClient } from "./global";
-import { RestClient } from "./interfaces/RestClient";
+import { RestClient } from "./interfaces";
 import { toolsClient } from "./tools";
+
+export * from "./crypto";
+export * from "./exchange";
+export * from "./fiat";
+export * from "./global";
+export * from "./interfaces";
 
 export const restClient = (
   apiKey: string,

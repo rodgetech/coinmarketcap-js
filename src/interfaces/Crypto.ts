@@ -65,7 +65,7 @@ export interface IdMap {
 export interface IdMapResponse extends ApiResponse<IdMap[]> {}
 
 export interface LatestQuotesQueryParams {
-  id?: number;
+  id?: string;
   slug?: string;
   symbol?: string;
   convert?: string;
